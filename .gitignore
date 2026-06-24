@@ -1,0 +1,14 @@
+*.env
+!.env.example
+
+**/openwebui-data/
+**/data/
+**/letsencrypt/
+**/config/
+**/couchdb-data/
+**/couchdb-etc/
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
