@@ -1,0 +1,15 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    volumes:
+      - ./jellyfin-data/config:/config
+      - ./jellyfin-data/cache:/cache
+      - ${JELLYFIN_PATH}:/media
+    networks:
+      - npm-network
+
+networks:
+  npm-network:
+    external: true
