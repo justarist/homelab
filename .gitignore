@@ -5,11 +5,12 @@
 **/openwebui-data/
 **/data/
 **/letsencrypt/
-**/config/
+**/obsidian-web-config/
 **/couchdb-data/
 **/couchdb-etc/
 **/vw-data
 **/*-data
+**/*-config
 
 .DS_Store
 Thumbs.db
