@@ -1,0 +1,12 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2
+    restart: unless-stopped
+    volumes:
+      - ./kuma-data:/app/data
+    networks:
+      - npm-network
+
+networks:
+  npm-network:
+    external: true
