@@ -2,15 +2,22 @@
 **/.env
 !.env.example
 
-**/openwebui-data/
-**/data/
-**/letsencrypt/
-**/obsidian-web-config/
-**/couchdb-data/
-**/couchdb-etc/
+**/openwebui-data
+**/data
+**/letsencrypt
+**/obsidian-web-config
+**/couchdb-data
+**/couchdb-etc
 **/vw-data
+**/kuma-data
+**/homepage-data
+**/kopia-cache
+**/kopia-config
+**/kopia-logs
 **/*-data
 **/*-config
+**/*-cache
+**/*-logs
 
 .DS_Store
 Thumbs.db

@@ -1,0 +1,31 @@
+services:
+  kopia:
+    image: kopia/kopia:latest
+    container_name: kopia
+    hostname: kopia
+    restart: unless-stopped
+    command:
+      - server
+      - start
+      - --disable-csrf-token-checks
+      - --insecure
+      - --address=0.0.0.0:51515
+      - --server-username=${KOPIA_UI_USERNAME}
+      - --server-password=${KOPIA_UI_PASSWORD}
+    environment:
+      KOPIA_PASSWORD: ${KOPIA_PASSWORD}
+      USER: "root"
+    volumes:
+      - ./kopia-config:/app/config
+      - ./kopia-cache:/app/cache
+      - ./kopia-logs:/app/logs
+
+      - ${KOPIA_PATH_TO_SERVICES}:/data:ro
+
+      - ${KOPIA_PATH_TO_BACKUP}:/repository
+    networks:
+      - npm-network
+
+networks:
+  npm-network:
+    external: true
