@@ -1,17 +1,18 @@
 services:
   nextcloud-aio:
     image: ghcr.io/nextcloud-releases/all-in-one:latest
-    container_name: nextcloud_aio_mastercontainer
+    container_name: nextcloud-aio-mastercontainer
     restart: unless-stopped
-    ports:
-      - "180:80"
-      - "18080:8080"
-      - "18443:8443"
     environment:
       - NEXTCLOUD_DATADIR=/run/media/Storage/nextcloud
+      - APACHE_PORT=11000
+      - APACHE_IP_BINDING=0.0.0.0
+      - SKIP_DOMAIN_VALIDATION=true
     volumes:
       - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - npm-network
 
 networks:
   npm-network:
