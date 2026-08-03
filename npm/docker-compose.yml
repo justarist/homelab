@@ -7,8 +7,8 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - ./npm-data:/data
+      - ./npm-letsencrypt:/etc/letsencrypt
     networks:
       - npm-network
 

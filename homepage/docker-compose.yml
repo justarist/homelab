@@ -1,0 +1,15 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    volumes:
+      - ./homepage-data:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev,${HOMEPAGE_ALLOWED_HOSTS}
+    networks:
+      - npm-network
+
+networks:
+  npm-network:
+    external: true
