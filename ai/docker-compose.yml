@@ -6,6 +6,8 @@ services:
       - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - ./openwebui-data:/app/backend/data
+    ports:
+      - '11434:11434'
     deploy:
       resources:
         reservations:
