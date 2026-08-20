@@ -17,7 +17,7 @@
 **/immich-db
 **/affine-data
 **/affine-config
-**/homeassistant-config
+**/navidrome-data
 **/*-db
 **/*-data
 **/*-config

@@ -1,0 +1,14 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    user: 1000:1000
+    networks:
+      - npm-network
+    restart: unless-stopped
+    volumes:
+      - "./navidrome-data:/data"
+      - "${PATH_TO_MUSIC}:/music:ro"
+
+networks:
+  npm-network:
+    external: true
