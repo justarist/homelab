@@ -2,7 +2,6 @@ services:
   navidrome:
     container_name: navidrome
     image: deluan/navidrome:latest
-    user: 1000:1000
     networks:
       - npm-network
     restart: unless-stopped
