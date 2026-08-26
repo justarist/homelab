@@ -23,7 +23,6 @@
 **/*-config
 **/*-cache
 **/*-logs
-**/docker-compose.*.disabled
 
 .DS_Store
 Thumbs.db
