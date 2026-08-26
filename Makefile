@@ -17,6 +17,8 @@ update-all: ## Updates all services ("docker compose pull && docker compose up -
 				echo ">>>> No Dockerfile detected, pulling image"; \
 				(cd "$$dir" && docker compose pull && docker compose up -d); \
 			fi; \
+		elif [ -f "$$dir/docker-compose.yml.disabled" ] || [ -f "$$dir/docker-compose.yaml.disabled" ]; then \
+			echo ">> Docker Compose file disabled in $$dir"; \
 		fi \
 	done
 
@@ -25,6 +27,8 @@ down-all: ## Stops all services
 		if [ -f "$$dir/docker-compose.yml" ] || [ -f "$$dir/docker-compose.yaml" ]; then \
 			echo ">> Stopping $$dir"; \
 			(cd "$$dir" && docker compose down); \
+		elif [ -f "$$dir/docker-compose.yml.disabled" ] || [ -f "$$dir/docker-compose.yaml.disabled" ]; then \
+			echo ">> Docker Compose file disabled in $$dir"; \
 		fi \
 	done
 
@@ -33,6 +37,8 @@ restart-all: ## Restarts all services
 		if [ -f "$$dir/docker-compose.yml" ] || [ -f "$$dir/docker-compose.yaml" ]; then \
 			echo ">> Restarting $$dir"; \
 			(cd "$$dir" && docker compose up -d); \
+		elif [ -f "$$dir/docker-compose.yml.disabled" ] || [ -f "$$dir/docker-compose.yaml.disabled" ]; then \
+			echo ">> Docker Compose file disabled in $$dir"; \
 		fi \
 	done
 
